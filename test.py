@@ -51,7 +51,7 @@ while True:
             imgResizeShape = imgResize.shape
             wGap = math.ceil((imgSize - wCal) / 2)
             imgWhite[:, wGap:wCal + wGap] = imgResize
-            prediction , index = classifier.getPrediction(img)
+            prediction , index = classifier.getPrediction(imgWhite)
             print(prediction,index)
 
         else:
@@ -61,7 +61,7 @@ while True:
             imgResizeShape = imgResize.shape
             hGap = math.ceil((imgSize - hCal) / 2)
             imgWhite[hGap:hCal + hGap, :] = imgResize
-            prediction , index = classifier.getPrediction(img)
+            prediction , index = classifier.getPrediction(imgWhite)
              
         cv2.putText(imgOutput,labels[index],(x,y-20),cv2.FONT_HERSHEY_COMPLEX,2,(255,0,255),2)
 
